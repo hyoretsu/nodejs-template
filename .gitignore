@@ -3,5 +3,5 @@
 *.log
 /temp
 tmp/*
-!tmp/.gitkeep
-ormconfig.json
+/coverage
+.env
