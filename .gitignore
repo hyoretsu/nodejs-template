@@ -3,6 +3,8 @@
 /dist
 /node_modules
 temp/*
+!temp/.gitkeep
 tmp/*
+!tmp/.gitkeep
 *.log
 .env

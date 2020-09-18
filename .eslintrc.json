@@ -22,12 +22,6 @@
  "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier"],
  "rules": {
   "@typescript-eslint/camelcase": "off",
-  "@typescript-eslint/interface-name-prefix": [
-   "error",
-   {
-    "prefixWithI": "always"
-   }
-  ],
   "@typescript-eslint/naming-convention": [
    "error",
    {
