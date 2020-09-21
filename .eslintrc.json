@@ -41,6 +41,7 @@
    }
   ],
   "class-methods-use-this": "off",
+  "default-case": "off",
   "import/extensions": [
    "error",
    "ignorePackages",
@@ -63,6 +64,7 @@
   "no-prototype-builtins": "off",
   "no-restricted-syntax": "off",
   "no-underscore-dangle": "off",
+  "no-useless-constructor": "off",
   "prettier/prettier": "error"
  },
  "settings": {
