@@ -8,6 +8,7 @@ specifiers:
   '@babel/plugin-proposal-decorators': ^7.14.5
   '@babel/preset-env': ^7.14.7
   '@babel/preset-typescript': ^7.14.5
+  '@jest/types': ^27.0.6
   '@types/bcryptjs': ^2.4.2
   '@types/cors': ^2.8.10
   '@types/express': ^4.17.12
@@ -82,6 +83,7 @@ devDependencies:
   '@babel/plugin-proposal-decorators': 7.14.5_@babel+core@7.14.6
   '@babel/preset-env': 7.14.7_@babel+core@7.14.6
   '@babel/preset-typescript': 7.14.5_@babel+core@7.14.6
+  '@jest/types': 27.0.6
   '@types/bcryptjs': 2.4.2
   '@types/cors': 2.8.10
   '@types/express': 4.17.12
