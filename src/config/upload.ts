@@ -1,17 +1,31 @@
-import multer from 'multer';
+import { format } from 'date-fns';
+import multer, { StorageEngine } from 'multer';
 import path from 'path';
 
-const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
+interface IUploadConfig {
+ driver: 'disk';
 
+ tmpFolder: string;
+ uploadsFolder: string;
+
+ multer: {
+  storage: StorageEngine;
+ };
+}
+
+const tmpFolder = path.resolve('..', '..', 'tmp');
 export default {
- directory: tmpFolder,
+ driver: process.env.STORAGE_DRIVER,
 
- storage: multer.diskStorage({
-  destination: tmpFolder,
-  filename(request, file, callback) {
-   const fileName = `${file.originalname}`;
+ tmpFolder,
+ uploadsFolder: path.resolve(tmpFolder, 'uploads'),
 
-   return callback(null, fileName);
-  },
- }),
-};
+ multer: {
+  storage: multer.diskStorage({
+   destination: tmpFolder,
+   filename(req, file, cb) {
+    return cb(null, `${format(new Date(), 'YYYYMMDD')}-${file.originalname}`);
+   },
+  }),
+ },
+} as IUploadConfig;
