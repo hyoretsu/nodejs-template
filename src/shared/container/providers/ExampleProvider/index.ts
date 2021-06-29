@@ -1,8 +1,7 @@
 import { container } from 'tsyringe';
 
-import IExampleProvider from './models/IExampleProvider';
-
 import ExampleProvider from './implementations/ExampleProvider';
+import IExampleProvider from './models/IExampleProvider';
 
 const providers = {
  example: ExampleProvider,
