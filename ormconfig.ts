@@ -1,22 +1,27 @@
-module.exports = [
+import { ConnectionOptions } from 'typeorm';
+
+const host = 'localhost';
+const migrationsDir = './src/shared/infra/typeorm/migrations';
+
+const config: ConnectionOptions[] = [
  {
   name: 'default',
   type: 'postgres',
-  host: 'localhost',
+  host,
   port: 5432,
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASS,
   database: process.env.DB_NAME,
   entities: ['./src/modules/**/infra/typeorm/entities/*.ts'],
-  migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
+  migrations: [`${migrationsDir}/*.ts`],
   cli: {
-   migrationsDir: './src/shared/infra/typeorm/migrations',
-  }
+   migrationsDir,
+  },
  },
  {
   name: 'MongoDB',
   type: 'mongodb',
-  host: 'localhost',
+  host,
   port: 27017,
   username: process.env.MONGO_USER,
   password: process.env.MONGO_PASS,
@@ -25,3 +30,5 @@ module.exports = [
   useUnifiedTopology: true,
  },
 ];
+
+export default config;
