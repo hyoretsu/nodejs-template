@@ -4,12 +4,7 @@
   "node": true,
   "jest": true
  },
- "extends": [
-  "airbnb-base",
-  "plugin:@typescript-eslint/recommended",
-  "plugin:prettier/recommended",
-  "prettier/@typescript-eslint"
- ],
+ "extends": ["airbnb-base", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "prettier"],
  "globals": {
   "Atomics": "readonly",
   "SharedArrayBuffer": "readonly"
