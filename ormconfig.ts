@@ -1,27 +1,23 @@
-import { ConnectionOptions } from 'typeorm';
+import { DataSourceOptions } from 'typeorm';
 
-const host = 'localhost';
-const migrationsDir = './src/shared/infra/typeorm/migrations';
+const ext = process.env.NODE_ENV === 'production' ? 'js' : 'ts';
 
-const config: ConnectionOptions[] = [
+const config: DataSourceOptions[] = [
  {
   name: 'default',
   type: 'postgres',
-  host,
-  port: 5432,
+  host: process.env.DB_HOST,
+  port: Number(process.env.POSTGRES_PORT),
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASS,
   database: process.env.DB_NAME,
-  entities: ['./src/modules/**/infra/typeorm/entities/*.ts'],
-  migrations: [`${migrationsDir}/*.ts`],
-  cli: {
-   migrationsDir,
-  },
+  entities: [`${process.env.NODE_ENV === 'production' ? 'dist' : 'src'}/modules/**/infra/typeorm/entities/*.${ext}`],
+  migrations: [`dist/shared/infra/typeorm/migrations/*.${ext}`],
  },
  {
   name: 'MongoDB',
   type: 'mongodb',
-  host,
+  host: process.env.DB_HOST,
   port: 27017,
   username: process.env.MONGO_USER,
   password: process.env.MONGO_PASS,
